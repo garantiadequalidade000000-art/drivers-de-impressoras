@@ -1,0 +1,38 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#titulo{
+    color: white;
+    padding: 1rem;
+    margin-bottom:10px ;
+    text-align: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 21%, rgba(0,212,255,1) 100%);
+
+}
+#botao{
+    text-align: center;
+}
+#button{
+    
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow:
+     2.6px 3.6px 3.2px -13px rgba(0, 0, 0, 0.105),
+    7.3px 9.9px 8.8px -13px rgba(0, 0, 0, 0.15),
+    17.5px 23.8px 21.1px -13px rgba(0, 0, 0, 0.195),
+    58px 79px 70px -13px rgba(0, 0, 0, 0.3);
+}
+.slide-top {
+	animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+#rodape{
+    text-align: center;
+    margin: 10rem;
+}
+footer{
+    position: static;
+}
+#macaco{
+    width: 100px;
+}
