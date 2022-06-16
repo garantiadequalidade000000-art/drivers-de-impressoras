@@ -46,3 +46,11 @@ function printid(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<h2 id="print-id">Print ID</h2><table><thead><tr><th>Modelo</th><th>Versão</th><th>Download</th></tr></thead><tbody><tr><td>PrintID</td><td>1.1.10.2</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/PrintID/Print_iD_&amp;_Print_iD_Touch_v1.1.10.2.exe">Driver</a> - <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/PrintID_Utility_v1.0.exe">Utility</a></td></tr><tr><td>PrintID Touch</td><td>1.1.10.2</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/PrintID/Print_iD_&amp;_Print_iD_Touch_v1.1.10.2.exe">Driver</a> - <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/PrintID_Utility_v1.0.exe">Utility</a></td></tr></tbody></table>'
 }
+function impre_V2(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://anotaai-impressora.s3.dualstack.sa-east-1.amazonaws.com/Impressora+Anota+AI.exe"><h2>Impressora Anota AI 3.1.3</h2></a>'
+}
+function impre_V1(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1sNgtwUQU9W1vXBV9Tyht0Rj1V6QKzZ2t/view"><h2>Impressora Anota AI 3.0.6</h2></a>'
+}
