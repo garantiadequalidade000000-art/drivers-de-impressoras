@@ -54,3 +54,11 @@ function impre_V1(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://drive.google.com/file/d/1sNgtwUQU9W1vXBV9Tyht0Rj1V6QKzZ2t/view"><h2>Impressora Anota AI 3.0.6</h2></a>'
 }
+function anota_ai_responde(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://anotaai-production-extension.s3.dualstack.us-east-1.amazonaws.com/Anota+AI+Responde+Setup+1.1.9.exe"><h2>Anota Ai Responde - Separado</h2></a>'
+}
+function revo(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://www.revouninstaller.com/start-freeware-download-portable/"><h2>Revo Uninstaller</h2></a>'
+}
