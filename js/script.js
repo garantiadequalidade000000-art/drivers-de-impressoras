@@ -75,3 +75,7 @@ function revo(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://www.revouninstaller.com/start-freeware-download-portable/"><h2>Revo Uninstaller</h2></a>'
 }
+function anota_desktop(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://app.anota.ai/download-app/anotaai-desktop"><h2>Anota Ai Desktop</h2></a>'
+}
