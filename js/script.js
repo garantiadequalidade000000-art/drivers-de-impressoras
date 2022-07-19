@@ -79,3 +79,7 @@ function anota_desktop(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://app.anota.ai/download-app/anotaai-desktop"><h2>Anota Ai Desktop</h2></a>'
 }
+function sem_script(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1g9527G4OP2lA_XPq4Im9t6_dhe3aHg6A/view"><h2>Sem Script</h2></a>'
+}
