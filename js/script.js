@@ -83,3 +83,7 @@ function sem_script(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://drive.google.com/file/d/1g9527G4OP2lA_XPq4Im9t6_dhe3aHg6A/view"><h2>Sem Script</h2></a>'
 }
+function impre_4_0_1(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/12mLJZQ_o-lS8G1ZZCZxtOtrr4f-1gYPh/view"><h2>Impressora 4.0.1</h2></a>'
+}
