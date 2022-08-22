@@ -87,3 +87,7 @@ function impre_4_0_1(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://drive.google.com/file/d/12mLJZQ_o-lS8G1ZZCZxtOtrr4f-1gYPh/view"><h2>Impressora 4.0.1</h2></a>'
 }
+function winrar(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611.exe"><h2>Winrar</h2></a>'
+}
