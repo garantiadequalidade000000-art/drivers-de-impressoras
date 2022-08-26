@@ -91,3 +91,7 @@ function winrar(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611.exe"><h2>Winrar</h2></a>'
 }
+function otimizador(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Otimizador</h2><table><tr><td>ipconfig /flushdns</td></tr><tr><td>netsh winsock reset</td></tr><tr><td>netsh int tcp set global autotuninglevel=normal</td></tr><tr><td>netsh interface tcp set heuristics disabled</td></tr><tr><td>netsh int tcp set supplemental internet congestionprovider=ctcp</td></tr><tr><td>netsh int tcp set global dca=enabled</td></tr><tr><td>netsh int tcp set global netdma=enabled</td></tr><tr><td>netsh int tcp set global ecncapability=enabled</td></tr></table><br><a href="https://drive.google.com/file/d/1--0tPnY3kIQCKFv0AwrlG0qQbxf7GnuE/view?usp=sharing">Arquivo .bat</a>'
+}
