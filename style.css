@@ -38,6 +38,8 @@ footer{
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: 0.8rem;
+    position: relative;
 }
 @keyframes slide-top {
     0% {

@@ -54,14 +54,21 @@ function impre_V1(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://drive.google.com/file/d/1sNgtwUQU9W1vXBV9Tyht0Rj1V6QKzZ2t/view"><h2>Impressora Anota AI 3.0.6</h2></a>'
 }
-function impre_4_0_0_v1(){
+function debug_3_1_3(){
     var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1CSV_sst07MgfdAHl0rnJ9ZOIoruByk1N/view?usp=sharing"><h2>Impressora 4.0.0 V1</h2></a>'
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1L4Drqb28ER2DUJ07A8P2n2Q6kDy9ss7H/view"><h2>Debug 3.1.3</h2></a>'
 }
-function impre_4_0_0_v2(){
+function debug_3_0_6(){
     var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1BdBtE2zMlen1fzAOwt8K_KzYVY5kSTPt/view?usp=sharing"><h2>Impressora 4.0.0 V2</h2></a>'
-
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/19hIcZxuYLrFcxrB54mRlBjfVweZIOcpl/view"><h2>Debug 3.0.6</h2></a>'
+}
+function debug_4_1_0(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1i0no14yigNZaUpOraQO4rQajc-QzKDgj/view"><h2>Debug 4.1.0</h2></a>'
+}
+function communication_tester(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1l97WEjbaTdNRHDkFg_u-2N8ty34OlXpH/view"><h2>Communication Tester</h2></a>'
 }
 function impre_4_0_0_v3(){
     var drivers = document.getElementById('drivers')
