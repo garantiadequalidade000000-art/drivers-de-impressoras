@@ -70,3 +70,53 @@ footer{
 #contador{
     display: none;
 }
+
+#menu{
+    width: auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    
+}
+#menu li{
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgb(159, 203, 233);
+}
+#menu ul{
+    list-style: none;
+    margin: 2%;
+}
+#menu ul li{
+    display: inline-block;
+    margin: 1%;
+    padding: 1%;
+    width: 170px;
+    line-height: 50px;
+    float: left;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;    
+}
+
+#menu ul li:hover{
+    text-decoration: none;
+    display: block;
+}
+
+#menu ul ul{
+    display: none;
+    margin: 5px;
+    position: absolute;
+    background: rgb(159, 203, 233);;
+    border-radius: 10px;
+}
+#menu ul li:hover > ul{
+    display: block;
+}
