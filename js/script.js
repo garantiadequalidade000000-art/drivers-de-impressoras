@@ -102,3 +102,39 @@ function otimizador(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<h2>Otimizador</h2><table><tr><td>ipconfig /flushdns</td></tr><tr><td>netsh winsock reset</td></tr><tr><td>netsh int tcp set global autotuninglevel=normal</td></tr><tr><td>netsh interface tcp set heuristics disabled</td></tr><tr><td>netsh int tcp set supplemental internet congestionprovider=ctcp</td></tr><tr><td>netsh int tcp set global dca=enabled</td></tr><tr><td>netsh int tcp set global netdma=enabled</td></tr><tr><td>netsh int tcp set global ecncapability=enabled</td></tr></table><br><a href="https://drive.google.com/file/d/1--0tPnY3kIQCKFv0AwrlG0qQbxf7GnuE/view?usp=sharing">Arquivo .bat</a>'
 }
+function evadin(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2 id="pos">Evadin</h2><table><thead><tr><td>EP-26M é uma POS80</td><td>11.3.0.0</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe">Driver</a> - <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/POS_Utilities.exe">Utility</a></td></tr></tbody></table>'
+}
+function gainscha(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Gainscha</h2><table><thead><tr><td>GPrinter</td><td>11.3.0.0</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gainscha/Gainscha_GPrinterDrivers_v2020.1.exe">Driver</a> </td></tr></tbody></table>'
+}
+function dascom(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Dascom</h2><table><thead><tr><td>Dascom DT-210 e DT-230</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dascom/Dascom_DT-210_DT-230_Driver_v1.0.0.7.exe">Driver</a> </td></tr></tbody></table>'
+}
+function dimep(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Dimep</h2><table><thead><tr><td>D-Print</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/Dimep_D-PRINT_DUAL_v2.1.4.4.exe">Driver</a> </td></tr><tr><td>Virtual COM</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W7_x64.exe">Virtual COM W7 x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W7_x86.exe">Virtual COM W7 x86</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W8_x64.exe">Virtual COM W8 x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W8_x86.exe">Virtual COM W8 x86</a>|</td></tr> </tbody></table>'
+}
+function argox(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Argox</h2><table><thead><tr><td>Argox Printer</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Argox/Argox_PrinterDrivers_v2022.1.exe">Driver</a> </td></tr></tbody></table>'
+}
+function gertec(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Gertec</h2><table><thead><tr><td>G250</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gertec/Driver-G250-Spooler_VCOM-v1.1.exe">Driver</a> </td></tr></tbody></table>'
+}
+function menno(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Menno</h2><table><thead><tr><td>Menno Printer</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Menno/Menno_Printer_Driver_v2.52.exe">Driver</a> </td></tr></tbody></table>'
+}
+function star(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Star</h2><table><thead><tr><td>Star BSC10 </td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_BSC10_Drivers_v2.1_x64.exe">Driver x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star_BSC10_Drivers_v2.1_x86.exe">Driver x86</a>|</td><tr><td>TSP043</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_TSP043_x64_v2.1.exe">Driver x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_TSP043_x86_v2.1.exe">Driver x86</a>|</td></tr><tr><td>Star 3.1.1</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe">Driver x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe">Driver x86</a>|</td></tr><tr><td>Star 3.7.2</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe">Driver x64</a>|</td><td><a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe">Driver x86</a>|</td></tr></tr></tbody></table>'
+}
+function waytec(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Waytec</h2><table><thead><tr><td>WP-50</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/WayTec_WP-50_Driver_v7.17.50.exe">Driver</a>|</td><tr><td>WP-100</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/WayTec_WP-100_Driver_v7.17.exe">Driver</a>|</td></tr></tr></tbody></table>'
+}
