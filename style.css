@@ -1,126 +1,129 @@
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #titulo{
-    color: white;
-    padding: 1rem;
-    margin-bottom:10px ;
-    text-align: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 21%, rgba(0,212,255,1) 100%);
-    border-radius: 10px;
-    
+    color: white;
+    padding: 1rem;
+    margin-bottom:10px ;
+    text-align: center;
+    /* O primeiro background foi alterado para um marrom escuro */
+    background: rgb(50, 20, 0); 
+    /* O gradiente foi alterado de tons de azul para tons de laranja */
+    background: linear-gradient(90deg, rgba(50, 20, 0, 1) 0%, rgba(200, 80, 0, 1) 21%, rgba(255, 165, 0, 1) 100%);
+    border-radius: 10px;
+    
 }
 #botao{
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 #button{
-    padding: 1rem;
-    margin-bottom:10px ;
-    text-align: center;
-    border-radius: 10px;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 1rem;
+    margin-bottom:10px ;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 .slide-top {
 	animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
 }
 #rodape{
-    text-align: center;
-    margin: 10rem;
+    text-align: center;
+    margin: 10rem;
 }
 footer{
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.8rem;
-    position: relative;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    position: relative;
 }
 @keyframes slide-top {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100%);
-    }
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 #button:hover{
-    background: rgb(111, 183, 231);
-    box-shadow:
-     2.6px 3.6px 3.2px -13px rgba(0, 0, 0, 0.105),
-    7.3px 9.9px 8.8px -13px rgba(0, 0, 0, 0.15),
-    17.5px 23.8px 21.1px -13px rgba(0, 0, 0, 0.195),
-    58px 79px 70px -13px rgba(0, 0, 0, 0.3);
+    /* Cor de hover do botão alterada de um azul claro (rgb(111, 183, 231)) para um laranja claro (pêssego) */
+    background: rgb(255, 192, 140);
+    box-shadow:
+     2.6px 3.6px 3.2px -13px rgba(0, 0, 0, 0.105),
+    7.3px 9.9px 8.8px -13px rgba(0, 0, 0, 0.15),
+    17.5px 23.8px 21.1px -13px rgba(0, 0, 0, 0.195),
+    58px 79px 70px -13px rgba(0, 0, 0, 0.3);
 }
 
 #drivers{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 #contador{
-    display: none;
+    display: none;
 }
 
 #menu{
-    width: auto;
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.2rem;
-    
+    width: auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    
 }
 #menu li{
-    list-style: none;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 
 }
 #menu ul{
-    list-style: none;
-    margin: 2%;
+    list-style: none;
+    margin: 2%;
 }
 #menu ul li{
-    display: inline-block;
-    margin: 1%;
-    padding: 1%;
-    width: 170px;
-    line-height: 50px;
-    float: left;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;    
+    display: inline-block;
+    margin: 1%;
+    padding: 1%;
+    width: 170px;
+    line-height: 50px;
+    float: left;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;    
 }
 
 #menu ul li:hover{
-    text-decoration: none;
-    display: block;
+    text-decoration: none;
+    display: block;
 }
 
 #menu ul ul{
-    position: absolute;
-    display: none;
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-    z-index: 2;
+    position: absolute;
+    display: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
 #menu ul li:hover > ul{
-    display: block;
+    display: block;
 }
