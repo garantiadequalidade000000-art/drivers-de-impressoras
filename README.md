@@ -131,6 +131,11 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |-----------|-----------|-----------------------------|
 |G250       |1.1.0.0    |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gertec/Driver-G250-Spooler_VCOM-v1.1.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Gertec%20G250.pdf)|
 
+## Goldensky
+| Modelo      |Versão     |Download                   |
+|-------------|-----------|---------------------------|
+|Goldensky    |1.1.0.0    |[Driver](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/1df99f0b803d396cf3f36b4c04d59f44c6fcd6df/Goldensky/GOLDENSKY_POS80_x86-x64.exe)|
+
 ## Jetway
 | Modelo    |Versão     |Download                     |
 |-----------|-----------|-----------------------------|
