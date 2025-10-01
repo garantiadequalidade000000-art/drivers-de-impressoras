@@ -1,6 +1,6 @@
 function goldensky(){
     var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<h2>Goldensky</h2><table><thead><tr><td>Goldensky</td><td> <a href="https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/1df99f0b803d396cf3f36b4c04d59f44c6fcd6df/Goldensky/GOLDENSKY_POS80_x86-x64.exe">Driver</a> </td></tr></tbody></table>'
+    drivers.innerHTML = '<h2 id= "goldensky">Goldensky</h2><table><thead><tr><td>Goldensky</td><td> <a href="https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/1df99f0b803d396cf3f36b4c04d59f44c6fcd6df/Goldensky/GOLDENSKY_POS80_x86-x64.exe">Driver</a> </td></tr></tbody></table>'
 }
 function bematech(){
     var drivers = document.getElementById('drivers')
@@ -146,4 +146,5 @@ function waytec(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<h2>Waytec</h2><table><thead><tr><td>WP-50</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/WayTec_WP-50_Driver_v7.17.50.exe">Driver</a>|</td><tr><td>WP-100</td><td> <a href="https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/WayTec_WP-100_Driver_v7.17.exe">Driver</a>|</td></tr></tr></tbody></table>'
 }
+
 
