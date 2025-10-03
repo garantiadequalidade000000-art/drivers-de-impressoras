@@ -239,8 +239,7 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 
 [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Waytec_Utility_v3.2.0.1.exe)
 
-## Argox Etiqueta
-[Argox](#ArgoxEtiqueta) | [Elgin](#ElginEtiqueta) | [Tomate](#TomateEtiqueta) | [Zebra](#ZebraEtiqueta) 
+## IMPRESSORAS DE ETIQUETA
 
 ## Argox_Etiqueta
 | Modelo            | Versão    |Download                   |
@@ -253,7 +252,7 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |Elgin L-42            |0.0.0.0    |[Driver](https://drive.google.com/file/d/12Q-oiN835sLTmX5Uk_C_H3uzGoovaI_n/view?usp=drive_link)| -
 |Elgin L-42 & L-43 PRO |0.0.0.0    |[Driver](https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing)| 
 
-[Utility](https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing)|
+[Utility](https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing)
 
 ## Tomate_Etiqueta
 | Modelo            | Versão    |Download                   |
