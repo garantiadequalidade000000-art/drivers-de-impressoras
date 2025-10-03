@@ -100,7 +100,7 @@ function winrar(){
 }
 function argox_etiqueta(){
     var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<h2>Argox_Etiqueta</h2><table><thead><tr><td>Argox_Etiqueta</td><td> <a href="https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing">Driver</a> </td></tr></tbody></table>'
+    drivers.innerHTML = '<h2>Argox Etiqueta</h2><table><thead><tr><td>Argox Etiqueta</td><td> <a href="https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing">Driver</a> </td></tr></tbody></table>'
 }
 function bats(){
     var drivers = document.getElementById('drivers')
@@ -120,6 +120,7 @@ function ver_impressora_em_rede(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<h2>Ver impressora em rede</h2><table><thead><tr><td>ver_impressora_em_rede</td><td> <a href="https://drive.google.com/file/d/1bVz06kwnyWXMcezze_sAxVizJb_USRgP/view?usp=sharing">Driver</a> </td></tr></tbody></table>'
 }
+
 
 
 
