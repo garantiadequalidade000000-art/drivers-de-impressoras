@@ -14,7 +14,7 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 [Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Goldensky](#Goldensky) | [Jetway](#Jetway) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
 
 ### Marcas Etiquetas
-[Argox](#Argox) | [Elgin](#Elgin) | [Tomate](#Tomate) | [Zebra](#Zebra) 
+[Argox](#Argox_Etiqueta) | [Elgin](#Elgin_Etiqueta) | [Tomate](#Tomate_Etiqueta) | [Zebra](#Zebra_Etiqueta) 
 
 ## Argox
 | Modelo         |Versão                |Download                     |
@@ -238,3 +238,29 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |WP-100     |7.17.0.0   |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/Waytec_WP-100_Driver_v7.17.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/c7c765698f77fc6cbf4338af53eb7f9281705d39/Manuals/Waytec_WP-50.pdf)|
 
 [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Waytec_Utility_v3.2.0.1.exe)
+
+## Argox Etiqueta
+[Argox](#ArgoxEtiqueta) | [Elgin](#ElginEtiqueta) | [Tomate](#TomateEtiqueta) | [Zebra](#ZebraEtiqueta) 
+
+## Argox_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Argox OS 214 PLUS  |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing)|
+
+## Elgin_Etiqueta
+| Modelo               | Versão    |Download                   |
+|----------------------|-----------|---------------------------|
+|Elgin L-42            |0.0.0.0    |[Driver](https://drive.google.com/file/d/12Q-oiN835sLTmX5Uk_C_H3uzGoovaI_n/view?usp=drive_link)| -
+|Elgin L-42 & L-43 PRO |0.0.0.0    |[Driver](https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing)| -
+[Utility](https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing)|
+
+## Tomate_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Tomate             |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing)|
+
+## Zebra_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Zebra              |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/1fCnX5lCfFnQkI0u3UFKaMD8_ZAnpWNE6?usp=drive_link)|
+
