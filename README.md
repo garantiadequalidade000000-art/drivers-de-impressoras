@@ -251,7 +251,8 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 | Modelo               | Versão    |Download                   |
 |----------------------|-----------|---------------------------|
 |Elgin L-42            |0.0.0.0    |[Driver](https://drive.google.com/file/d/12Q-oiN835sLTmX5Uk_C_H3uzGoovaI_n/view?usp=drive_link)| -
-|Elgin L-42 & L-43 PRO |0.0.0.0    |[Driver](https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing)| -
+|Elgin L-42 & L-43 PRO |0.0.0.0    |[Driver](https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing)| 
+
 [Utility](https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing)|
 
 ## Tomate_Etiqueta
