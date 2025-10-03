@@ -86,57 +86,9 @@ function utilities(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML =''
 }
-function impre_V2(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://anotaai-impressora.s3.dualstack.sa-east-1.amazonaws.com/Impressora+Anota+AI.exe"><h2>Impressora Anota AI 3.1.3</h2></a>'
-}
-function impre_V1(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1sNgtwUQU9W1vXBV9Tyht0Rj1V6QKzZ2t/view"><h2>Impressora Anota AI 3.0.6</h2></a>'
-}
-function debug_3_1_3(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1L4Drqb28ER2DUJ07A8P2n2Q6kDy9ss7H/view"><h2>Debug 3.1.3</h2></a>'
-}
-function debug_3_0_6(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/19hIcZxuYLrFcxrB54mRlBjfVweZIOcpl/view"><h2>Debug 3.0.6</h2></a>'
-}
-function debug_4_1_0(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1i0no14yigNZaUpOraQO4rQajc-QzKDgj/view"><h2>Debug 4.1.0</h2></a>'
-}
-function communication_tester(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1l97WEjbaTdNRHDkFg_u-2N8ty34OlXpH/view"><h2>Communication Tester</h2></a>'
-}
-function impre_4_0_0_v3(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/12mLJZQ_o-lS8G1ZZCZxtOtrr4f-1gYPh/view"><h2>Impressora 4.0.0 V3</h2></a>'
-}
-function anota_ai_responde(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://anotaai-production-extension.s3.dualstack.us-east-1.amazonaws.com/Anota+AI+Responde+Setup+1.1.9.exe"><h2>Anota Ai Responde - Separado</h2></a>'
-}
 function revo(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://www.revouninstaller.com/start-freeware-download-portable/"><h2>Revo Uninstaller</h2></a>'
-}
-function anota_desktop(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://app.anota.ai/download-app/anotaai-desktop"><h2>Anota Ai Desktop</h2></a>'
-}
-function sem_script(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/1g9527G4OP2lA_XPq4Im9t6_dhe3aHg6A/view"><h2>Sem Script</h2></a>'
-}
-function impre_4_0_1(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/12mLJZQ_o-lS8G1ZZCZxtOtrr4f-1gYPh/view"><h2>Impressora 4.0.1</h2></a>'
-}
-function impre_4_2_0(){
-    var drivers = document.getElementById('drivers')
-    drivers.innerHTML = '<a href="https://drive.google.com/file/d/12mLJZQ_o-lS8G1ZZCZxtOtrr4f-1gYPh/view"><h2>Impressora 4.2.0</h2></a>'
 }
 function otimizador(){
     var drivers = document.getElementById('drivers')
@@ -146,7 +98,10 @@ function winrar(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611.exe"><h2>Winrar</h2></a>'
 }
-
+function argox_etiqueta(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>Argox_Etiqueta</h2><table><thead><tr><td>Argox_Etiqueta</td><td> <a href="https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing">Driver</a> </td></tr></tbody></table>'
+}
 
 
 
