@@ -1,4 +1,4 @@
-# Impressoras Térmica
+# IMPRESSORAS TÉRMICAS
 
 ## Ferramentas Auxiliares
 [Instalador Universal](https://github.com/Delutto/instalador_universal)
@@ -239,7 +239,7 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 
 [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Waytec_Utility_v3.2.0.1.exe)
 
-## IMPRESSORAS DE ETIQUETA
+# IMPRESSORAS DE ETIQUETA
 
 ## Argox_Etiqueta
 | Modelo            | Versão    |Download                   |
