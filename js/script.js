@@ -102,6 +102,10 @@ function argox_etiqueta(){
     var drivers = document.getElementById('drivers')
     drivers.innerHTML = '<h2>Argox_Etiqueta</h2><table><thead><tr><td>Argox_Etiqueta</td><td> <a href="https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing">Driver</a> </td></tr></tbody></table>'
 }
+function nome_impressora(){
+    var drivers = document.getElementById('drivers')
+    drivers.innerHTML = '<h2>nome_impressora</h2><table><thead><tr><td>nome_impressora</td><td> <a href="link_de_donwload">Driver</a> </td></tr></tbody></table>'
+}
 
 
 
