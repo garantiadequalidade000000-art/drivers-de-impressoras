@@ -6,9 +6,9 @@ body{
     padding: 1rem;
     margin-bottom:10px ;
     text-align: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 21%, rgba(0,212,255,1) 100%);
-    border-radius: 10px;
+    background: rgb(139, 69, 19); /* Um tom de laranja escuro como fallback */
+	background: linear-gradient(90deg, rgba(139, 69, 19, 1) 0%, rgba(255, 140, 0, 1) 21%, rgba(255, 165, 0, 1) 100%);
+	border-radius: 10px;
     
 }
 #botao{
