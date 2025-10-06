@@ -1,4 +1,4 @@
-# Impressoras Térmica
+# IMPRESSORAS TÉRMICAS
 
 ## Ferramentas Auxiliares
 [Instalador Universal](https://github.com/Delutto/instalador_universal)
@@ -10,8 +10,11 @@ Rodar o seguinte comando no Executar:
 
 explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 
-### Marcas
-[Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Jetway](#Jetway) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
+### Marcas Térmicas
+[Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Goldensky](#Goldensky) | [Jetway](#Jetway) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
+
+### Marcas Etiquetas
+[Argox](#Argox_Etiqueta) | [Elgin](#Elgin_Etiqueta) | [Tomate](#Tomate_Etiqueta) | [Zebra](#Zebra_Etiqueta) 
 
 ## Argox
 | Modelo         |Versão                |Download                     |
@@ -23,11 +26,12 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |----------------|----------------------|-----------------------------|
 |MP-2500 TH      |4.4.0.3               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-2500.pdf)|
 |MP-2800 TH      |1.3.0.0               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_MP_2800_SpoolerDrivers_v1.3.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_MP_2800_SpoolerDrivers_v1.3.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-2800.pdf)|
-|MP-3000 TH      |   -                  |Deve ser instalada com o driver Generic do Windows|
+|MP-3000 TH      |         -            |Deve ser instalada com o driver Generic do Windows - [Manual](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/8e4ace91fec5c0f982cc33a5bb11778bd24b75c1/Manuals/Instalacao_Impressora_Generic_Text_Only.pdf)|
 |MP-4000 TH      |4.4.0.3               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-4000.pdf)|
 |MP-4200 HS      |1.7.7.0               |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech%20MP-4200-HS_Driver_v1.7.7.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/3c179594151df435c1e1a1d8a1d5c51419e879af/Manuals/Bematech%20MP-4200%20HS.pdf)|
 |MP-4200 TH      |4.4.0.3               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-4200.pdf)|
 |MP-4200 TH ADV  |6.0.1.0               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v6.0.1.0.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v6.0.1.0.exe)|
+|MP-5100 TH      |4.5.0.0               |[Driver x64](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/488899c0e04e07aaf6ec01161c7d930dbacf384e/Bematech/BematechSpoolerDrivers_x64_v4.5.0.0.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-5100.pdf)|
 |MP-5100 TH      |5.0.0.4               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v5.0.0.4.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v5.0.0.4.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-5100.pdf)|
 |MP-100S TH      |4.4.0.3               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-100S.pdf)|
 |PP-10           |6.0.1.0               |[Driver x86](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v6.0.1.0.exe) - [Driver x64](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v6.0.1.0.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20PP-10.pdf)|
@@ -130,6 +134,11 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |-----------|-----------|-----------------------------|
 |G250       |1.1.0.0    |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gertec/Driver-G250-Spooler_VCOM-v1.1.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Gertec%20G250.pdf)|
 
+## Goldensky
+| Modelo      |Versão     |Download                   |
+|-------------|-----------|---------------------------|
+|Goldensky    |1.1.0.0    |[Driver](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/1df99f0b803d396cf3f36b4c04d59f44c6fcd6df/Goldensky/GOLDENSKY_POS80_x86-x64.exe)|
+
 ## Jetway
 | Modelo    |Versão     |Download                     |
 |-----------|-----------|-----------------------------|
@@ -229,3 +238,29 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |WP-100     |7.17.0.0   |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/Waytec_WP-100_Driver_v7.17.exe) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/c7c765698f77fc6cbf4338af53eb7f9281705d39/Manuals/Waytec_WP-50.pdf)|
 
 [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Waytec_Utility_v3.2.0.1.exe)
+
+# IMPRESSORAS DE ETIQUETA
+
+## Argox_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Argox OS 214 PLUS  |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing)|
+
+## Elgin_Etiqueta
+| Modelo               | Versão    |Download                   |
+|----------------------|-----------|---------------------------|
+|Elgin L-42            |0.0.0.0    |[Driver](https://drive.google.com/file/d/12Q-oiN835sLTmX5Uk_C_H3uzGoovaI_n/view?usp=drive_link)| -
+|Elgin L-42 & L-43 PRO |0.0.0.0    |[Driver](https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing)| 
+
+[Utility](https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing)
+
+## Tomate_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Tomate             |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing)|
+
+## Zebra_Etiqueta
+| Modelo            | Versão    |Download                   |
+|-------------------|-----------|---------------------------|
+|Zebra              |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/1fCnX5lCfFnQkI0u3UFKaMD8_ZAnpWNE6?usp=drive_link)|
+
