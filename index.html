@@ -44,7 +44,7 @@
         </div>
 
         <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-500">
-            Dados extraídos do github.
+            by Miguel Rodriguez.
         </footer>
     </div>
 
@@ -364,12 +364,14 @@
                 "Tomate_Etiqueta": {
                     anchor: "Tomate_Etiqueta",
                     models: [
+                        // Dados atualizados conforme solicitação do usuário
                         { model: "Tomate", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing" }] }
                     ],
                     utilities: []
                 },
                 "Zebra_Etiqueta": {
                     anchor: "Zebra_Etiqueta",
+                    // Novos dados adicionados conforme solicitação do usuário
                     models: [
                         { model: "Zebra", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1fCnX5lCfFnQkI0u3UFKaMD8_ZAnpWNE6?usp=drive_link" }] }
                     ],
@@ -547,18 +549,7 @@
                 const brandName = brandKey.replace('_Etiqueta', '');
                 const brand = printerData.labelBrands[brandKey];
                 
-                // Handle the Tomate case where the table is incomplete in the source markdown
-                if (brandName === 'Tomate' || brandName === 'Zebra') {
-                     html += `
-                        <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-green-500" id="${brand.anchor}">
-                            <h2 class="text-3xl font-bold text-gray-800 mb-4">${brandName} (Etiqueta)</h2>
-                            <p class="text-red-600 bg-red-100 p-3 rounded-md">Dados incompletos no índice original. Adicione os modelos e links aqui.</p>
-                            ${renderUtilities(brand.utilities)}
-                            <a href="#top" class="text-sm text-gray-500 hover:text-green-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
-                        </div>
-                    `;
-                    return; 
-                }
+                // Removido o tratamento especial para Tomate e Zebra, pois os dados foram adicionados.
 
                 html += `
                     <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-green-500" id="${brand.anchor}">
@@ -579,4 +570,3 @@
     </script>
 </body>
 </html>
-
