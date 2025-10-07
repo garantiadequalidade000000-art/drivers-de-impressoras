@@ -137,7 +137,7 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 ## Goldensky
 | Modelo      |Versão     |Download                   |
 |-------------|-----------|---------------------------|
-|Goldensky    |1.1.0.0    |[Driver](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/1df99f0b803d396cf3f36b4c04d59f44c6fcd6df/Goldensky/GOLDENSKY_POS80_x86-x64.exe)|
+|Goldensky    |1.1.0.0    |[Driver](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5aedf2f714662020d3e9b70f0e2b0dd5dc3cf8bc/Goldensky/GOLDENSKY_POS80_x86-x64.exe)|
 
 ## Jetway
 | Modelo    |Versão     |Download                     |
