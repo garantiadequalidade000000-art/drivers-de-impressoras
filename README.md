@@ -1,7 +1,7 @@
 # IMPRESSORAS TÉRMICAS
 
 ## Ferramentas Auxiliares
-[Instalador Universal](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5b5cd93429e2c83fe56712077faf28afa3e1a85f/Universal_Installer/Output/Instalador_Universal_1.0.0.exe)
+[Instalador Universal](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/572b5ea6aa033ba2713db817bf42127f199a938b/Universal_Installer/Output/Instalador_Universal_1.0.1.exe)
 
 [Ver Impressoras em REDE](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Printer_IP_Finder.exe)
 
