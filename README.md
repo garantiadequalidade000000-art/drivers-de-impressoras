@@ -1,7 +1,7 @@
 # IMPRESSORAS TÉRMICAS
 
 ## Ferramentas Auxiliares
-[Instalador Universal]([(https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5b5cd93429e2c83fe56712077faf28afa3e1a85f/Universal_Installer/Output/Instalador_Universal_1.0.0.exe)])
+[Instalador Universal](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5b5cd93429e2c83fe56712077faf28afa3e1a85f/Universal_Installer/Output/Instalador_Universal_1.0.0.exe)
 
 [NetStatGUI](https://github.com/Delutto/NetStatGUI)
 
