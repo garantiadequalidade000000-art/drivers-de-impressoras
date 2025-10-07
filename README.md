@@ -3,7 +3,9 @@
 ## Ferramentas Auxiliares
 [Instalador Universal](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5b5cd93429e2c83fe56712077faf28afa3e1a85f/Universal_Installer/Output/Instalador_Universal_1.0.0.exe)
 
-[NetStatGUI](https://github.com/Delutto/NetStatGUI)
+[Ver Impressoras em REDE](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Printer_IP_Finder.exe)
+
+[Ver Impressoras em USB](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Usb_Tree_View.exe)
 
 ## Abrir o Control Printers clássico no Windows 11 atualizado.
 Rodar o seguinte comando no Executar:
