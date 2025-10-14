@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPRESSORAS TÉRMICAS</title>
-    <!-- Carrega o Tailwind CSS para estilização -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -30,13 +29,59 @@
         .utility-link {
             @apply text-purple-600 hover:text-purple-800 transition duration-150 ease-in-out;
         }
+
+        /* Estilos adicionados para o formulário de login */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .login-form-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 400px;
+            width: 90%;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-4xl font-extrabold text-gray-800 mb-8 border-b-4 border-blue-500 pb-3" id="top">IMPRESSORAS TÉRMICAS</h1>
 
-        <!-- Content will be rendered here by JavaScript -->
+    <div id="login-overlay" class="login-overlay hidden">
+        <div class="login-form-container">
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-6 text-center">Acesso Restrito</h2>
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Usuário:</label>
+                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                    Entrar
+                </button>
+                <p id="login-message" class="text-center text-sm text-red-600 hidden"></p>
+            </form>
+        </div>
+    </div>
+    <div id="main-content" class="max-w-7xl mx-auto hidden">
+        <div class="flex justify-between items-center mb-8 border-b-4 border-blue-500 pb-3">
+            <h1 class="text-4xl font-extrabold text-gray-800" id="top">IMPRESSORAS TÉRMICAS</h1>
+            <button id="logout-button" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition duration-150 ease-in-out" onclick="doLogout()">
+                Sair
+            </button>
+        </div>
+
         <div id="content-container">
             <div class="text-center p-8 bg-white rounded-lg shadow-xl">
                 <p class="text-gray-500">Carregando dados...</p>
@@ -49,7 +94,18 @@
     </div>
 
     <script>
-        // Use a structure similar to the extracted data
+        // Configurações de Acesso
+        const VALID_USERNAME = "suporte.foco";
+        const VALID_PASSWORD = "focosistemas123";
+        const AUTH_KEY = "printer_drivers_auth";
+        
+        // Elementos do DOM
+        const loginOverlay = document.getElementById('login-overlay');
+        const loginForm = document.getElementById('login-form');
+        const loginMessage = document.getElementById('login-message');
+        const mainContent = document.getElementById('main-content');
+
+        // Dados da Impressora
         const printerData = {
             auxiliaryTools: [
                 { name: "Instalador Universal", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/572b5ea6aa033ba2713db817bf42127f199a938b/Universal_Installer/Output/Instalador_Universal_1.0.1.exe" },
@@ -383,6 +439,44 @@
 
         const contentContainer = document.getElementById('content-container');
 
+        // FUNÇÕES DE AUTENTICAÇÃO
+        function checkLogin() {
+            if (localStorage.getItem(AUTH_KEY) === 'true') {
+                loginOverlay.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                renderContent(); // Chama a renderização do conteúdo se logado
+            } else {
+                loginOverlay.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+            }
+        }
+
+        function doLogin(event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            if (usernameInput === VALID_USERNAME && passwordInput === VALID_PASSWORD) {
+                localStorage.setItem(AUTH_KEY, 'true');
+                loginMessage.classList.add('hidden');
+                checkLogin();
+            } else {
+                loginMessage.textContent = 'Usuário ou senha inválidos.';
+                loginMessage.classList.remove('hidden');
+            }
+        }
+
+        window.doLogout = function() { // Exposta globalmente para o botão Sair
+            localStorage.removeItem(AUTH_KEY);
+            checkLogin();
+        }
+
+        // Adiciona o listener para o formulário de login
+        loginForm.addEventListener('submit', doLogin);
+
+        // Funções de Renderização (Mantidas como estavam, mas agora chamadas após o login)
+
         // Function to create a link element
         function createLink(text, url, className = 'download-link') {
             if (!url || url.includes('Manual')) {
@@ -566,10 +660,9 @@
             contentContainer.innerHTML = html;
         }
 
-        // Run the main rendering function when the page loads
-        document.addEventListener('DOMContentLoaded', renderContent);
+        // Run the authentication check when the page loads
+        document.addEventListener('DOMContentLoaded', checkLogin);
     </script>
 </body>
 </html>
-
-
+```
