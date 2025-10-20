@@ -7,6 +7,8 @@
 
 [Ver Impressoras em USB](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Usb_Tree_View.exe)
 
+[Impressora Virtual](https://drive.google.com/u/0/uc?id=10RGn5VdwqcdDnePTfwx-6lgwFdsXRoTz&export=download)
+
 ## Abrir o Control Printers clássico no Windows 11 atualizado.
 Rodar o seguinte comando no Executar:
 
