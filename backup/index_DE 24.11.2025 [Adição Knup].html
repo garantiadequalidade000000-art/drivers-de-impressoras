@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPRESSORAS TÉRMICAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f9;
+        }
+        /* Custom scroll behavior for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style for the special MP-3000 TH entry */
+        .special-instruction {
+            color: #d97706; /* Amber-600 */
+            font-style: italic;
+            padding: 0.5rem 0;
+            display: block;
+        }
+        /* Custom colors for links to differentiate them */
+        .download-link {
+            @apply text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out;
+        }
+        .utility-link {
+            @apply text-purple-600 hover:text-purple-800 transition duration-150 ease-in-out;
+        }
+
+        /* Estilos adicionados para o formulário de login */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .login-form-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 400px;
+            width: 90%;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div id="login-overlay" class="login-overlay hidden">
+        <div class="login-form-container">
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-6 text-center">Acesso Restrito</h2>
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Usuário:</label>
+                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                    Entrar
+                </button>
+                <p id="login-message" class="text-center text-sm text-red-600 hidden"></p>
+            </form>
+        </div>
+    </div>
+    <div id="main-content" class="max-w-7xl mx-auto hidden">
+        <div class="flex justify-between items-center mb-8 border-b-4 border-blue-500 pb-3">
+            <h1 class="text-4xl font-extrabold text-gray-800" id="top">IMPRESSORAS TÉRMICAS</h1>
+            <button id="logout-button" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition duration-150 ease-in-out" onclick="doLogout()">
+                Sair
+            </button>
+        </div>
+
+        <div id="content-container">
+            <div class="text-center p-8 bg-white rounded-lg shadow-xl">
+                <p class="text-gray-500">Carregando dados...</p>
+            </div>
+        </div>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-500">
+            by Miguel Rodriguez.
+        </footer>
+    </div>
+
+    <script>
+        // Configurações de Acesso
+        const VALID_USERNAME = "suporte.foco";
+        const VALID_PASSWORD = "focosistemas123";
+        const AUTH_KEY = "printer_drivers_auth";
+        
+        // Elementos do DOM
+        const loginOverlay = document.getElementById('login-overlay');
+        const loginForm = document.getElementById('login-form');
+        const loginMessage = document.getElementById('login-message');
+        const mainContent = document.getElementById('main-content');
+
+        // Dados da Impressora
+        const printerData = {
+            auxiliaryTools: [
+                { name: "Instalador Universal", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/572b5ea6aa033ba2713db817bf42127f199a938b/Universal_Installer/Output/Instalador_Universal_1.0.1.exe" },
+                { name: "Ver Impressoras em REDE", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Printer_IP_Finder.exe" },
+                { name: "Ver Impressoras em USB", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/dddef94a81c3969fb76fe23b8a30e5a647cc305a/Universal_Installer/Output/Usb_Tree_View.exe" },
+                { name: "Impressoras Virtual", url: "https://drive.google.com/file/d/10RGn5VdwqcdDnePTfwx-6lgwFdsXRoTz/view?usp=drive_link" },
+			],
+            windowsCommand: "explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}",
+            
+            // Thermal Printers
+            thermalBrands: {
+                "Argox": {
+                    anchor: "Argox",
+                    models: [
+                        { model: "Todos", version: "2022.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Argox/Argox_PrinterDrivers_v2022.1.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Bematech": {
+                    anchor: "Bematech",
+                    models: [
+                        { model: "MP-2500 TH", version: "4.4.0.3", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-2500.pdf" }] },
+                        { model: "MP-2800 TH", version: "1.3.0.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_MP_2800_SpoolerDrivers_v1.3.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_MP_2800_SpoolerDrivers_v1.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-2800.pdf" }] },
+                        { model: "MP-3000 TH", version: "-", downloads: [{ name: "Deve ser instalada com o driver Generic do Windows", url: "" }, { name: "Manual", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/8e4ace91fec5c0f982cc33a5bb11778bd24b75c1/Manuals/Instalacao_Impressora_Generic_Text_Only.pdf" }] },
+                        { model: "MP-4000 TH", version: "4.4.0.3", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-4000.pdf" }] },
+                        { model: "MP-4200 HS", version: "1.7.7.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech%20MP-4200-HS_Driver_v1.7.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/3c179594151df435c1e1a1d8a1d5c51419e879af/Manuals/Bematech%20MP-4200%20HS.pdf" }] },
+                        { model: "MP-4200 TH", version: "4.4.0.3", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-4200.pdf" }] },
+                        { model: "MP-4200 TH ADV", version: "6.0.1.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v6.0.1.0.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v6.0.1.0.exe" }] },
+                        { model: "MP-5100 TH", version: "4.5.0.0", downloads: [{ name: "Driver x64", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/488899c0e04e07aaf6ec01161c7d930dbacf384e/Bematech/BematechSpoolerDrivers_x64_v4.5.0.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-5100.pdf" }] },
+                        { model: "MP-5100 TH", version: "5.0.0.4", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v5.0.0.4.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v5.0.0.4.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-5100.pdf" }] },
+                        { model: "MP-100S TH", version: "4.4.0.3", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v4.4.0.3.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v4.4.0.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20MP-100S.pdf" }] },
+                        { model: "PP-10", version: "6.0.1.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x86_v6.0.1.0.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/BematechSpoolerDrivers_x64_v6.0.1.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Bematech%20PP-10.pdf" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Bematech_Utility_v2.9.13_x86.exe" },
+                        { name: "Utility x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Bematech_Utility_v2.10.04_x64.exe" },
+                        { name: "VirtualCOM", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Bematech/Bematech_USBCOM_v4.0.2.exe" },
+                        { name: "MP-2800 TH Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Bematech_MP-2800_TH_Utility_v1.4.exe" },
+                        { name: "BemaGhost", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/BemaGhost_v1.0.exe" },
+                    ]
+                },
+                "Control ID": {
+                    anchor: "Control-ID",
+                    models: [
+                        { model: "PrintID", version: "1.1.10.2", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/PrintID/Print_iD_&_Print_iD_Touch_v1.1.10.2.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Control%20iD%20Print%20iD%20Touch.pdf" }] },
+                        { model: "PrintID Touch", version: "1.1.10.2", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/PrintID/Print_iD_&_Print_iD_Touch_v1.1.10.2.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Control%20iD%20Print%20iD.pdf" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/PrintID_Utility_v1.0.exe" }
+                    ]
+                },
+                "Daruma": {
+                    anchor: "Daruma",
+                    models: [
+                        { model: "DR700", version: "4.0.3.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Daruma/Daruma_700_Spooler_Driver_v4.0.3.1.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Daruma%20DR700.pdf" }] },
+                        { model: "DR800", version: "2.0.1.7", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Daruma/Daruma_800_Spooler_Driver_v2.0.1.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Daruma%20DR800.pdf" }] },
+                        { model: "FS700", version: "4.0.3.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Daruma/Daruma_700_Spooler_Driver_v4.0.3.1.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Daruma%20FS700.pdf" }] },
+                        { model: "FS800", version: "2.0.1.7", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Daruma/Daruma_800_Spooler_Driver_v2.0.1.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Daruma%20FS800.pdf" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Daruma_Utility_v2.20.9.exe" }
+                    ]
+                },
+                "Dascom": {
+                    anchor: "Dascom",
+                    models: [
+                        { model: "DT-210", version: "1.0.0.7", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dascom/Dascom_DT-210_DT-230_Driver_v1.0.0.7.exe" }] },
+                        { model: "DT-230", version: "1.0.0.7", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dascom/Dascom_DT-210_DT-230_Driver_v1.0.0.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Dascom_DT-230.pdf" }] },
+                    ],
+                    utilities: []
+                },
+                "Diebold": {
+                    anchor: "Diebold",
+                    models: [
+                        { model: "TSP143MU", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }] },
+                        { model: "Mecaf Perfecta", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Diebold%20Mecaf%20Perfecta.pdf" }] },
+                        { model: "IM903TT", version: "1.0.1.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_IM903TT_1.0.1.exe" }] },
+                        { model: "IM693H-002", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }] },
+                        { model: "IM453HU", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }] },
+                        { model: "IM433TD", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }] },
+                        { model: "IM113ID", version: "1.9.0.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_IM113ID_v1.2.0.10_x64.exe" }] },
+                        { model: "IM402TD", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Diebold/Diebold_Printers_v1.34_drv_1.9.exe" }] },
+                    ],
+                    utilities: [
+                        { name: "Ativar Guilhotina", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Diebold_Ativar_Guilhotina.pdf" }
+                    ]
+                },
+                "Dimep": {
+                    anchor: "Dimep",
+                    models: [
+                        { model: "D-Print Dual", version: "1.9.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/Dimep_D-PRINT_DUAL_v2.1.4.4.exe" }] },
+                    ],
+                    utilities: [
+                        { name: "VirtualCOM Windows 7 x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W7_x86.exe" },
+                        { name: "VirtualCOM Windows 7 x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W7_x64.exe" },
+                        { name: "VirtualCOM Windows 8 x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W8_x86.exe" },
+                        { name: "VirtualCOM Windows 8 x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Dimep/VirtualCOM/Dimep_VirtualCOM_v1.5.0_W8_x64.exe" },
+                    ]
+                },
+                "Elgin": {
+                    anchor: "Elgin",
+                    models: [
+                        { model: "iX(i10)", version: "1.0.2.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_iX_v1.02.exe" }] },
+                        { model: "i7", version: "1.7.3.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_i7_i9_v1.7.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Elgin%20i7.pdf" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Elgin_i7-i8_Utility_v3.2.exe" }] },
+                        { model: "i8", version: "2.0.1.7", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_i8_v7.1.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Elgin%20i8.pdf" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Elgin_i7-i8_Utility_v3.2.exe" }] },
+                        { model: "i9", version: "1.7.3.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_i7_i9_v1.7.3.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Elgin%20i9.pdf" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Elgin_i9_Utility_v1.2.2.24.exe" }] },
+                        { model: "VOX", version: "1.25.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_VOX_V1.25.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Elgin%20VOX.pdf" }] },
+                        { model: "VOX+", version: "1.25.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_VOX_V1.25.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Elgin%20VOX%2B.pdf" }] },
+                        { model: "NIX", version: "3.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Elgin_NIX_Driver_v2.3.0.0.exe" }, { name: "Manual", url: "" }] },
+                    ],
+                    utilities: [
+                        { name: "Driver Prolific Windows 11", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/Serial_Virtual_W11_(PL2303v206).exe" },
+                        { name: "Driver Prolific 2303", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/PL2303_Driver_v1.12.0.exe" },
+                        { name: "Driver Prolific 23XX", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Elgin/PL23XX_Driver_v4.0.2.exe" }
+                    ]
+                },
+                "Epson": {
+                    anchor: "Epson",
+                    models: [
+                        { model: "TM-T20", version: "5.6.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T20_v5.6.0.0.exe" }] },
+                        { model: "TM-T20X", version: "6.1.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T20X_v6.1.0.0.exe" }] },
+                        { model: "TM-T81", version: "15.0.0.498", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T81_v15.0.0.498.exe" }] },
+                        { model: "TM-T88 III", version: "4.0.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_III_v4.exe" }, { name: "VirtualCOM", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_III_VirtualPort.exe" }] },
+                        { model: "TM-T88 IV", version: "4.0.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_IV_4.0.0.0.exe" }] },
+                        { model: "TM-T88 V", version: "5.6.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_V_v5.6.0.0.exe" }] },
+                        { model: "TM-T88 VI", version: "5.11.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_VI_v5.11.0.0.exe" }] },
+                        { model: "TM-T88 VII", version: "6.7.1.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Epson/Epson_TM-T88_VII_Driver_v6.7.1.0.exe" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Epson_NetConfig_v4_9_5.exe" }
+                    ]
+                },
+                "Evadin": {
+                    anchor: "Evadin",
+                    models: [
+                        { model: "EP-26M", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Feasso": {
+                    anchor: "Feasso",
+                    models: [
+                        { model: "F-IMTER-01", version: "1.7.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Feasso/Feasso_F-IMTER-01_Driver_v1.7.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/ee0aee36e858aeb05141eb49a0330e9daf73b553/Feasso/Feasso%20F-IMTER01.pdf" }] },
+                        { model: "F-IMTER-02", version: "2.0.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Feasso/Feasso_F-IMTER-02_Driver_v2.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/ee0aee36e858aeb05141eb49a0330e9daf73b553/Feasso/Feasso%20F-IMTER02.pdf" }] },
+                        { model: "F-IMTER-03", version: "1.5.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Feasso/Feasso_F-IMTER-03_Driver_v1.5.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/ee0aee36e858aeb05141eb49a0330e9daf73b553/Feasso/Feasso%20F-IMTER%2003.pdf" }] },
+                    ],
+                    utilities: []
+                },
+                "Gainscha": {
+                    anchor: "Gainscha",
+                    models: [
+                        { model: "Todos", version: "2020.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gainscha/Gainscha_GPrinterDrivers_v2020.1.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Gertec": {
+                    anchor: "Gertec",
+                    models: [
+                        { model: "G250", version: "1.1.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Gertec/Driver-G250-Spooler_VCOM-v1.1.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Gertec%20G250.pdf" }] }
+                    ],
+                    utilities: []
+                },
+                "Goldensky": {
+                    anchor: "Goldensky",
+                    models: [
+                        { model: "Goldensky", version: "1.1.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/5aedf2f714662020d3e9b70f0e2b0dd5dc3cf8bc/Goldensky/GOLDENSKY_POS80_x86-x64.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Jetway": {
+                    anchor: "Jetway",
+                    models: [
+                        { model: "JMP-100", version: "2.61J.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JMP-100_Driver_v2.61J.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_USB_Serial.zip" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_PrinterTool.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JMP-100.pdf" }] },
+                        { model: "JP-500", version: "7.17.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-500_Printer_Driver_v7.17.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_Driver_USB_Serial.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_PrinterTest.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-500.pdf" }] },
+                        { model: "JP-800", version: "2.38E.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-800_PrinterDriver_v2.38E.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PL23XX-M_LogoDriver_Setup.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PrinterTool.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-800.pdf" }] },
+                    ],
+                    utilities: []
+                },
+                "Knup": {
+                    anchor: "Knup",
+                    models: [
+                        { model: "Diversos", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvcyFBaVczS0FXLXRCZHdnV25TcTJhMnhoR09qU3pwP2U9YUlEeko5&id=7017B4BE0528B725%21237&cid=7017B4BE0528B725&sb=name&sd=1" }] }
+                    ],
+                    utilities: []
+                },
+                "Ledtec": {
+                    anchor: "Ledtec",
+                    models: [
+                        { model: "PMF", version: "1.0.0.0", downloads: [{ name: "Driver Win7 x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Ledtec/ENGWORKS_Printers_Win7_x86.exe" }, { name: "Driver Win7 x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Ledtec/ENGWORKS_Printers_Win7_x64.exe" }, { name: "Driver Win10 x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Ledtec/ENGWORKS_Printers_Win8_10_x86.exe" }, { name: "Driver Win10 x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Ledtec/ENGWORKSPrinters_Win8_10_x64.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Mafra": {
+                    anchor: "Mafra",
+                    models: [
+                        { model: "Mafra", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] }
+                    ],
+                    utilities: []
+                },
+                "Menno": {
+                    anchor: "Menno",
+                    models: [
+                        { model: "IT 250", version: "2.52", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Menno/Menno_Printer_Driver_v2.52.exe" }] },
+                        { model: "iTD 250", version: "2.52", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Menno/Menno_Printer_Driver_v2.52.exe" }] },
+                        { model: "LT56050", version: "2.52", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Menno/Menno_Printer_Driver_v2.52.exe" }] },
+                        { model: "LT76050", version: "2.52", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Menno/Menno_Printer_Driver_v2.52.exe" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Menno_PrinterTool_v1.56.exe" }
+                    ]
+                },
+                "Oi Vida": {
+                    anchor: "Oi-Vida",
+                    models: [
+                        { model: "OI-58H", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                        { model: "OI-1005", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                        { model: "OI-1007", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                        { model: "OI-1006", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                    ],
+                    utilities: []
+                },
+                "Perto": {
+                    anchor: "Perto",
+                    models: [
+                        { model: "PertoPrinter", version: "2.5.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/PertoPrinter/PertoPrinter_Driver_2.5.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Perto%20PertoPrinter.pdf" }] }
+                    ],
+                    utilities: []
+                },
+                "POS": {
+                    anchor: "POS",
+                    models: [
+                        { model: "POS58", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                        { model: "POS80", version: "11.3.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/POS/POS_Printer_Driver_Setup_v11.3.0.0.exe" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/POS_Utilities.exe" }
+                    ]
+                },
+                "Star": {
+                    anchor: "Star",
+                    models: [
+                        { model: "BSC10", version: "2.1.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_BSC10_Drivers_v2.1_x86.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_BSC10_Drivers_v2.1_x64.exe" }] },
+                        { model: "FVP10", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "MCP20", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "MCP21", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "MCP30", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "MCP31", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "POP10", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "SP512", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "SP542", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "SP712", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "SP717", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "SP742", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "SP747", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "TSP043", version: "2.1.0", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_TSP043_x86_v2.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_TSP043_x64_v2.1.exe" }] },
+                        { model: "TSP143IVUE", version: "3.1.1", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.1.1.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.1.1.exe" }] },
+                        { model: "TSP650II", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "TSP700II", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                        { model: "TSP800II", version: "3.7.2", downloads: [{ name: "Driver x86", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x86_v3.7.2.exe" }, { name: "Driver x64", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Star/Star_PrinterDrivers_x64_v3.7.2.exe" }] },
+                    ],
+                    utilities: []
+                },
+                "Sweda": {
+                    anchor: "Sweda",
+                    models: [
+                        { model: "SI-150", version: "1.0.0.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-150_SI-250_Drivers_v1.001.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-150.pdf" }] },
+                        { model: "SI-250", version: "1.0.0.1", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-150_SI-250_Drivers_v1.001.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-250.pdf" }] },
+                        { model: "SI-300L", version: "1.2.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-300_SI-300E_SI-300W_v1.2.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-300-L-S-W.pdf" }] },
+                        { model: "SI-300S", version: "1.2.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-300_SI-300E_SI-300W_v1.2.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-300-L-S-W.pdf" }] },
+                        { model: "SI-300E", version: "1.2.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-300_SI-300E_SI-300W_v1.2.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-300-L-S-W.pdf" }] },
+                        { model: "SI300W", version: "1.2.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Sweda/Sweda_SI-300_SI-300E_SI-300W_v1.2.0.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Sweda%20SI-300-L-S-W.pdf" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility SI-150-250", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Sweda_Utility_v1.524.exe" },
+                        { name: "Utility SI-300", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Sweda_Utility_v2.03.exe" }
+                    ]
+                },
+                "Tanca": {
+                    anchor: "Tanca",
+                    models: [
+                        { model: "TMP-500", version: "2.61T.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TMP-500_v2.61T.exe" }] },
+                        { model: "TP-450", version: "2.29E.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TP-450_Driver_v2.29E.exe" }] },
+                        { model: "TP-509", version: "2.62.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TP-509_DriverInstall_v2.62.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Tanca_TP-509_PrinterTool_v2.22.exe" }] },
+                        { model: "TP-550", version: "8.1.1.2", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TP-550_Printer_Driver_v8.1.1.2.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Tanca_TP-550_PrinterTool.exe" }] },
+                        { model: "TP-620", version: "6.1.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TP-620_Driver_v6.1.0.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Tanca_TP-620_Utility_v3.2.0.1.exe" }] },
+                        { model: "TP-650", version: "2.11.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Tanca/Tanca_TP-650_DriverInstall_v2.11.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Tanca_TP-650_PrinterTool_1.48E.exe" }] },
+                    ],
+                    utilities: []
+                },
+                "Waytec": {
+                    anchor: "Waytec",
+                    models: [
+                        { model: "WP-50", version: "7.17.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/WayTec_WP-50_Driver_v7.17.50.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/c7c765698f77fc6cbf4338af53eb7f9281705d39/Manuals/Waytec_WP-50.pdf" }] },
+                        { model: "WP-100", version: "7.17.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/Waytec_WP-100_Driver_v7.17.exe" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/c7c765698f77fc6cbf4338af53eb7f9281705d39/Manuals/Waytec_WP-50.pdf" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Waytec_Utility_v3.2.0.1.exe" }
+                    ]
+                }
+            },
+            
+            // Label Printers
+            labelBrands: {
+                "Argox_Etiqueta": {
+                    anchor: "Argox_Etiqueta",
+                    models: [
+                        { model: "Argox OS 214 PLUS", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/188Iux4OQiIDS7L2xDsZ8I69-tTA9Nl8H?usp=sharing" }] }
+                    ],
+                    utilities: []
+                },
+                "Elgin_Etiqueta": {
+                    anchor: "Elgin_Etiqueta",
+                    models: [
+                        { model: "Elgin L-42", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/file/d/12Q-oiN835sLTmX5Uk_C_H3uzGoovaI_n/view?usp=drive_link" }] },
+                        { model: "Elgin L-42 & L-43 PRO", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/file/d/1JS1i2CsJZT5_b2FFMNNEbojpRx5wS4ko/view?usp=sharing" }] },
+                    ],
+                    utilities: [
+                        { name: "Utility", url: "https://drive.google.com/file/d/1VWapA599NeZtCh8_BOdlcMtiMr3mJZ_O/view?usp=sharing" }
+                    ]
+                },
+                "Tomate_Etiqueta": {
+                    anchor: "Tomate_Etiqueta",
+                    models: [
+                        // Dados atualizados conforme solicitação do usuário
+                        { model: "Tomate", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing" }] }
+                    ],
+                    utilities: []
+                },
+                "Zebra_Etiqueta": {
+                    anchor: "Zebra_Etiqueta",
+                    // Novos dados adicionados conforme solicitação do usuário
+                    models: [
+                        { model: "Zebra", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1fCnX5lCfFnQkI0u3UFKaMD8_ZAnpWNE6?usp=drive_link" }] }
+                    ],
+                    utilities: []
+                }
+            }
+        };
+
+        const contentContainer = document.getElementById('content-container');
+
+        // FUNÇÕES DE AUTENTICAÇÃO
+        function checkLogin() {
+            if (localStorage.getItem(AUTH_KEY) === 'true') {
+                loginOverlay.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                renderContent(); // Chama a renderização do conteúdo se logado
+            } else {
+                loginOverlay.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+            }
+        }
+
+        function doLogin(event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            if (usernameInput === VALID_USERNAME && passwordInput === VALID_PASSWORD) {
+                localStorage.setItem(AUTH_KEY, 'true');
+                loginMessage.classList.add('hidden');
+                checkLogin();
+            } else {
+                loginMessage.textContent = 'Usuário ou senha inválidos.';
+                loginMessage.classList.remove('hidden');
+            }
+        }
+
+        window.doLogout = function() { // Exposta globalmente para o botão Sair
+            localStorage.removeItem(AUTH_KEY);
+            checkLogin();
+        }
+
+        // Adiciona o listener para o formulário de login
+        loginForm.addEventListener('submit', doLogin);
+
+        // Funções de Renderização (Mantidas como estavam, mas agora chamadas após o login)
+
+        // Function to create a link element
+        function createLink(text, url, className = 'download-link') {
+            if (!url || url.includes('Manual')) {
+                // If it's a manual or a link is missing/empty, treat it as informational
+                className = 'text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out';
+            } else if (className === 'utility-link') {
+                className = 'text-purple-600 hover:text-purple-800 transition duration-150 ease-in-out';
+            }
+            const a = document.createElement('a');
+            a.href = url;
+            a.textContent = text;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.className = className;
+            return a;
+        }
+        
+        // Function to render the main table for a brand
+        function renderModelsTable(brandData) {
+            let html = '';
+            
+            // Check for the special MP-3000 TH instruction (Bematech)
+            const mp3000Entry = brandData.models.find(m => m.model.includes('MP-3000 TH'));
+            
+            // Generate Table Header
+            html += `
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden mb-4">
+                        <thead class="bg-blue-500">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/4">Modelo</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/4">Versão</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/2">Download</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+            `;
+            
+            // Generate Table Rows
+            brandData.models.forEach(model => {
+                html += '<tr>';
+                html += `<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${model.model}</td>`;
+                html += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${model.version}</td>`;
+                
+                // Downloads column
+                html += `<td class="px-6 py-4 text-sm text-gray-700 space-x-3 whitespace-normal">`;
+                
+                if (model.model.includes('MP-3000 TH') && model.downloads[0].name.includes('Deve ser instalada')) {
+                    // Special case for MP-3000 TH
+                    html += `<span class="special-instruction">Deve ser instalada com o driver Generic do Windows</span>`;
+                }
+                
+                model.downloads.forEach((dl, index) => {
+                    // Check if it's the special instruction link content
+                    if (model.model.includes('MP-3000 TH') && dl.name.includes('Deve ser instalada')) {
+                        // Skip the special instruction link as text is already shown above, only show Manual
+                    } else {
+                        html += `<a href="${dl.url}" target="_blank" rel="noopener noreferrer" class="download-link text-xs sm:text-sm font-medium hover:underline">`;
+                        html += `[${dl.name}]`;
+                        html += `</a>`;
+                        if (index < model.downloads.length - 1) {
+                            html += ' - ';
+                        }
+                    }
+                });
+                
+                html += `</td>`;
+                html += '</tr>';
+            });
+
+            html += '</tbody></table></div>';
+            return html;
+        }
+
+        // Function to render utility links below the table
+        function renderUtilities(utilities) {
+            if (utilities.length === 0) return '';
+            
+            let html = '<div class="mt-4 mb-8 p-4 bg-purple-50 rounded-lg border border-purple-200 shadow-sm">';
+            html += '<p class="font-semibold text-purple-700 mb-2">Utilitários e Complementos:</p>';
+            html += '<div class="flex flex-wrap gap-x-4 gap-y-2">';
+            
+            utilities.forEach((utility, index) => {
+                const linkElement = createLink(utility.name, utility.url, 'utility-link');
+                html += `<span class="whitespace-nowrap">[${linkElement.outerHTML}]</span>`;
+                if (index < utilities.length - 1) {
+                    html += '';
+                }
+            });
+            
+            html += '</div></div>';
+            return html;
+        }
+
+        // Main rendering function
+        function renderContent() {
+            let html = '';
+
+            // 1. Ferramentas Auxiliares
+            html += `
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg mb-8">
+                    <h2 class="text-2xl font-bold text-gray-700 mb-3">Ferramentas Auxiliares</h2>
+                    <ul class="list-disc list-inside space-y-1">
+                        ${printerData.auxiliaryTools.map(tool => `
+                            <li>
+                                <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-150 ease-in-out font-medium">${tool.name}</a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+
+            // 2. Control Printers Command
+            html += `
+                <div class="bg-yellow-100 p-6 rounded-xl shadow-lg mb-8 border-l-4 border-yellow-500">
+                    <h2 class="text-2xl font-bold text-gray-700 mb-3">Abrir o Control Printers clássico no Windows 11 atualizado</h2>
+                    <p class="text-sm sm:text-base text-gray-700 mb-2">Rodar o seguinte comando no Executar (<code class="bg-yellow-200 p-1 rounded font-mono">Win + R</code>):</p>
+                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-300 font-mono text-sm text-yellow-800 break-all">
+                        ${printerData.windowsCommand}
+                    </div>
+                </div>
+            `;
+
+            // 3. Navigation Index (Thermal Printers)
+            html += `
+                <div class="p-6 bg-white rounded-xl shadow-lg mb-8">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">Marcas Térmicas (Rolos)</h3>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        ${Object.keys(printerData.thermalBrands).map(brand => `
+                            <a href="#${printerData.thermalBrands[brand].anchor}" class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition duration-150 ease-in-out">${brand}</a>
+                        `).join('')}
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3 border-t pt-4">Marcas Etiquetas (Labels)</h3>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        ${Object.keys(printerData.labelBrands).map(brandKey => {
+                            const brandName = brandKey.replace('_Etiqueta', '');
+                            const brandData = printerData.labelBrands[brandKey];
+                            return `<a href="#${brandData.anchor}" class="px-3 py-1 bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition duration-150 ease-in-out">${brandName}</a>`;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+
+            // 4. Render Thermal Brands Sections
+            Object.keys(printerData.thermalBrands).forEach(brandName => {
+                const brand = printerData.thermalBrands[brandName];
+                html += `
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-blue-500" id="${brand.anchor}">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">${brandName}</h2>
+                        ${renderModelsTable(brand)}
+                        ${renderUtilities(brand.utilities)}
+                        <a href="#top" class="text-sm text-gray-500 hover:text-blue-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
+                    </div>
+                `;
+            });
+
+            // 5. Section Separator for Label Printers
+            html += `
+                <h1 class="text-4xl font-extrabold text-gray-800 mb-8 mt-12 border-b-4 border-green-500 pb-3" id="IMPRESSORAS_DE_ETIQUETA">IMPRESSORAS DE ETIQUETA</h1>
+            `;
+
+            // 6. Render Label Brands Sections
+            Object.keys(printerData.labelBrands).forEach(brandKey => {
+                const brandName = brandKey.replace('_Etiqueta', '');
+                const brand = printerData.labelBrands[brandKey];
+                
+                // Removido o tratamento especial para Tomate e Zebra, pois os dados foram adicionados.
+
+                html += `
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-green-500" id="${brand.anchor}">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">${brandName} (Etiqueta)</h2>
+                        ${renderModelsTable(brand)}
+                        ${renderUtilities(brand.utilities)}
+                        <a href="#top" class="text-sm text-gray-500 hover:text-green-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
+                    </div>
+                `;
+            });
+
+
+            contentContainer.innerHTML = html;
+        }
+
+        // Run the authentication check when the page loads
+        document.addEventListener('DOMContentLoaded', checkLogin);
+    </script>
+</body>
+</html>
