@@ -15,7 +15,7 @@ Rodar o seguinte comando no Executar:
 explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 
 ### Marcas Térmicas
-[Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Goldensky](#Goldensky) | [Jetway](#Jetway) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
+[Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Goldensky](#Goldensky) | [Jetway](#Jetway) | [Knup](#Knup) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
 
 ### Marcas Etiquetas
 [Argox](#Argox_Etiqueta) | [Elgin](#Elgin_Etiqueta) | [Tomate](#Tomate_Etiqueta) | [Zebra](#Zebra_Etiqueta) 
@@ -149,6 +149,11 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 |JMP-100    |2.61J.0.0  |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JMP-100_Driver_v2.61J.exe) - [USB Serial](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_USB_Serial.zip) - [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_PrinterTool.zip) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JMP-100.pdf)|
 |JP-500     |7.17.0.0   |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-500_Printer_Driver_v7.17.exe) - [USB Serial](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_Driver_USB_Serial.exe) - [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_PrinterTest.zip) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-500.pdf)|
 |JP-800     |2.38E.0.0  |[Driver](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-800_PrinterDriver_v2.38E.exe) - [USB Serial](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PL23XX-M_LogoDriver_Setup.exe) - [Utility](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PrinterTool.zip) - [Manual](https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-800.pdf)|
+
+## Knup
+| Modelo    |Versão     |Download                     |
+|-----------|-----------|-----------------------------|
+|Diversas   |0.0.0.0    |[Drivers](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvcyFBaVczS0FXLXRCZHdnV25TcTJhMnhoR09qU3pwP2U9YUlEeko5&id=7017B4BE0528B725%21237&cid=7017B4BE0528B725&sb=name&sd=1)|
 
 ## Ledtec
 | Modelo    |Versão     |Download                     |
