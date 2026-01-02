@@ -14,7 +14,7 @@ Rodar o seguinte comando no Executar:
 
 explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 
-## Para para remover drivers que insistem em não ser excluídos pelo Painel de Controle:
+## Para remover drivers que insistem em não ser excluídos pelo Painel de Controle:
 Utilizar as teclas windows + R :
 
 printui /s /t2: Abre diretamente a aba de Drivers das Propriedades do Servidor de Impressão. Aqui você pode remover o driver e o pacote de driver.
