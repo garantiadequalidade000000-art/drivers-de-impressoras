@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPRESSORAS TÉRMICAS</title>
+    <title>IMPRESSORAS TÉRMICAS - Foco Sistemas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f9;
+            background-color: #f3f4f6; /* Cinza claro fundo */
         }
         /* Custom scroll behavior for anchor links */
         html {
@@ -17,17 +17,17 @@
         }
         /* Style for the special MP-3000 TH entry */
         .special-instruction {
-            color: #d97706; /* Amber-600 */
+            color: #ea580c; /* Orange-600 */
             font-style: italic;
             padding: 0.5rem 0;
             display: block;
         }
         /* Custom colors for links to differentiate them */
         .download-link {
-            @apply text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out;
+            @apply text-orange-600 hover:text-orange-800 transition duration-150 ease-in-out;
         }
         .utility-link {
-            @apply text-purple-600 hover:text-purple-800 transition duration-150 ease-in-out;
+            @apply text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out font-medium;
         }
 
         /* Estilos adicionados para o formulário de login */
@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,6 +47,7 @@
             background-color: white;
             padding: 2.5rem;
             border-radius: 0.75rem;
+            border-top: 6px solid #f97316; /* Orange-500 */
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             max-width: 400px;
             width: 90%;
@@ -57,39 +58,46 @@
 
     <div id="login-overlay" class="login-overlay hidden">
         <div class="login-form-container">
+            <div class="flex justify-center mb-4">
+                 <div class="h-12 w-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">F</div>
+            </div>
             <h2 class="text-3xl font-extrabold text-gray-800 mb-6 text-center">Acesso Restrito</h2>
             <form id="login-form" class="space-y-4">
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-700">Usuário:</label>
-                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">Senha:</label>
-                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
                 </div>
-                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition duration-150 ease-in-out">
                     Entrar
                 </button>
                 <p id="login-message" class="text-center text-sm text-red-600 hidden"></p>
             </form>
         </div>
     </div>
+
     <div id="main-content" class="max-w-7xl mx-auto hidden">
-        <div class="flex justify-between items-center mb-8 border-b-4 border-blue-500 pb-3">
-            <h1 class="text-4xl font-extrabold text-gray-800" id="top">IMPRESSORAS TÉRMICAS</h1>
-            <button id="logout-button" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition duration-150 ease-in-out" onclick="doLogout()">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 border-b-4 border-orange-500 pb-4 gap-4">
+            <div class="flex items-center">
+                <img src="logo.png" alt="Foco Sistemas" class="h-16 w-auto mr-4 object-contain">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800" id="top">DRIVERS DE IMPRESSORAS</h1>
+            </div>
+            <button id="logout-button" class="px-6 py-2 bg-gray-700 text-white text-sm font-medium rounded-md hover:bg-gray-900 transition duration-150 ease-in-out shadow-md" onclick="doLogout()">
                 Sair
             </button>
         </div>
 
         <div id="content-container">
             <div class="text-center p-8 bg-white rounded-lg shadow-xl">
-                <p class="text-gray-500">Carregando dados...</p>
+                <p class="text-gray-500 animate-pulse">Carregando dados...</p>
             </div>
         </div>
 
-        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-500">
-            by Miguel Rodriguez.
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-500 font-medium">
+            by Foco Sistemas
         </footer>
     </div>
 
@@ -114,7 +122,7 @@
                 { name: "Impressoras Virtual", url: "https://drive.google.com/file/d/10RGn5VdwqcdDnePTfwx-6lgwFdsXRoTz/view?usp=drive_link" },
 			],
             windowsCommand: "explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}",
-			
+            
             // Thermal Printers
             thermalBrands: {
                 "Argox": {
@@ -279,7 +287,7 @@
                     anchor: "Jetway",
                     models: [
                         { model: "JMP-100", version: "2.61J.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JMP-100_Driver_v2.61J.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_USB_Serial.zip" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JMP-100_PrinterTool.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JMP-100.pdf" }] },
-                        { model: "JP-500", version: "7.17.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-500_Printer_Driver_v7.17.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_Driver_USB_Serial.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_PrinterTest.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-500.pdf" }] },
+                        { model: "JP-500", version: "7.17.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Waytec/Waytec_WP-100_Driver_v7.17.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_Driver_USB_Serial.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-500_PrinterTest.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-500.pdf" }] },
                         { model: "JP-800", version: "2.38E.0.0", downloads: [{ name: "Driver", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Jetway/Jetway_JP-800_PrinterDriver_v2.38E.exe" }, { name: "USB Serial", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PL23XX-M_LogoDriver_Setup.exe" }, { name: "Utility", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Utilities/Jetway_JP-800_PrinterTool.zip" }, { name: "Manual", url: "https://raw.githubusercontent.com/Delutto/thermal_printers/main/Manuals/Jetway%20JP-800.pdf" }] },
                     ],
                     utilities: []
@@ -429,14 +437,12 @@
                 "Tomate_Etiqueta": {
                     anchor: "Tomate_Etiqueta",
                     models: [
-                        // Dados atualizados conforme solicitação do usuário
                         { model: "Tomate", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing" }] }
                     ],
                     utilities: []
                 },
                 "Zebra_Etiqueta": {
                     anchor: "Zebra_Etiqueta",
-                    // Novos dados adicionados conforme solicitação do usuário
                     models: [
                         { model: "Zebra", version: "0.0.0.0", downloads: [{ name: "Driver", url: "https://drive.google.com/drive/folders/1fCnX5lCfFnQkI0u3UFKaMD8_ZAnpWNE6?usp=drive_link" }] }
                     ],
@@ -483,15 +489,14 @@
         // Adiciona o listener para o formulário de login
         loginForm.addEventListener('submit', doLogin);
 
-        // Funções de Renderização (Mantidas como estavam, mas agora chamadas após o login)
+        // Funções de Renderização
 
         // Function to create a link element
         function createLink(text, url, className = 'download-link') {
             if (!url || url.includes('Manual')) {
-                // If it's a manual or a link is missing/empty, treat it as informational
-                className = 'text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out';
+                className = 'text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out';
             } else if (className === 'utility-link') {
-                className = 'text-purple-600 hover:text-purple-800 transition duration-150 ease-in-out';
+                className = 'text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out font-medium';
             }
             const a = document.createElement('a');
             a.href = url;
@@ -503,17 +508,13 @@
         }
         
         // Function to render the main table for a brand
-        function renderModelsTable(brandData) {
+        function renderModelsTable(brandData, headerColorClass = 'bg-orange-500') {
             let html = '';
             
-            // Check for the special MP-3000 TH instruction (Bematech)
-            const mp3000Entry = brandData.models.find(m => m.model.includes('MP-3000 TH'));
-            
-            // Generate Table Header
             html += `
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden mb-4">
-                        <thead class="bg-blue-500">
+                        <thead class="${headerColorClass}">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/4">Modelo</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/4">Versão</th>
@@ -523,24 +524,20 @@
                         <tbody class="bg-white divide-y divide-gray-200">
             `;
             
-            // Generate Table Rows
             brandData.models.forEach(model => {
                 html += '<tr>';
                 html += `<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${model.model}</td>`;
                 html += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${model.version}</td>`;
                 
-                // Downloads column
                 html += `<td class="px-6 py-4 text-sm text-gray-700 space-x-3 whitespace-normal">`;
                 
                 if (model.model.includes('MP-3000 TH') && model.downloads[0].name.includes('Deve ser instalada')) {
-                    // Special case for MP-3000 TH
                     html += `<span class="special-instruction">Deve ser instalada com o driver Generic do Windows</span>`;
                 }
                 
                 model.downloads.forEach((dl, index) => {
-                    // Check if it's the special instruction link content
                     if (model.model.includes('MP-3000 TH') && dl.name.includes('Deve ser instalada')) {
-                        // Skip the special instruction link as text is already shown above, only show Manual
+                        // Skip text link
                     } else {
                         html += `<a href="${dl.url}" target="_blank" rel="noopener noreferrer" class="download-link text-xs sm:text-sm font-medium hover:underline">`;
                         html += `[${dl.name}]`;
@@ -563,8 +560,8 @@
         function renderUtilities(utilities) {
             if (utilities.length === 0) return '';
             
-            let html = '<div class="mt-4 mb-8 p-4 bg-purple-50 rounded-lg border border-purple-200 shadow-sm">';
-            html += '<p class="font-semibold text-purple-700 mb-2">Utilitários e Complementos:</p>';
+            let html = '<div class="mt-4 mb-8 p-4 bg-gray-100 rounded-lg border border-gray-300 shadow-sm">';
+            html += '<p class="font-semibold text-gray-700 mb-2">Utilitários e Complementos:</p>';
             html += '<div class="flex flex-wrap gap-x-4 gap-y-2">';
             
             utilities.forEach((utility, index) => {
@@ -585,25 +582,42 @@
 
             // 1. Ferramentas Auxiliares
             html += `
-                <div class="bg-gray-100 p-6 rounded-xl shadow-lg mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border-l-4 border-gray-500">
                     <h2 class="text-2xl font-bold text-gray-700 mb-3">Ferramentas Auxiliares</h2>
                     <ul class="list-disc list-inside space-y-1">
                         ${printerData.auxiliaryTools.map(tool => `
                             <li>
-                                <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-150 ease-in-out font-medium">${tool.name}</a>
+                                <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:text-orange-800 transition duration-150 ease-in-out font-medium">${tool.name}</a>
                             </li>
                         `).join('')}
                     </ul>
                 </div>
             `;
 
-            // 2. Control Printers Command
+            // 2. Control Printers & Driver Removal Command
             html += `
-                <div class="bg-yellow-100 p-6 rounded-xl shadow-lg mb-8 border-l-4 border-yellow-500">
-                    <h2 class="text-2xl font-bold text-gray-700 mb-3">Abrir o Control Printers clássico no Windows 11 atualizado</h2>
-                    <p class="text-sm sm:text-base text-gray-700 mb-2">Rodar o seguinte comando no Executar (<code class="bg-yellow-200 p-1 rounded font-mono">Win + R</code>):</p>
-                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-300 font-mono text-sm text-yellow-800 break-all">
-                        ${printerData.windowsCommand}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gray-200 p-6 rounded-xl shadow-lg border-l-4 border-gray-600">
+                        <h2 class="text-xl font-bold text-gray-700 mb-3">Abrir Control Printers (Win 11)</h2>
+                        <p class="text-sm text-gray-700 mb-2">Rodar no Executar (<code class="bg-gray-300 p-1 rounded font-mono">Win + R</code>):</p>
+                        <div class="bg-white p-3 rounded-lg border border-gray-400 font-mono text-xs text-gray-800 break-all">
+                            ${printerData.windowsCommand}
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-100 p-6 rounded-xl shadow-lg border-l-4 border-orange-500">
+                        <h2 class="text-xl font-bold text-gray-800 mb-3">Remoção Avançada de Drivers</h2>
+                        <p class="text-sm text-gray-800 mb-2">Para drivers que não excluem pelo Painel de Controle (<code class="bg-orange-200 p-1 rounded font-mono">Win + R</code>):</p>
+                        <ul class="space-y-3 mt-2">
+                            <li>
+                                <code class="bg-white p-1 rounded font-mono text-xs border border-orange-300">printui /s /t2</code>
+                                <p class="text-xs text-orange-900 mt-1">Abre a aba de Drivers diretamente para remover o driver e o pacote.</p>
+                            </li>
+                            <li>
+                                <code class="bg-white p-1 rounded font-mono text-xs border border-orange-300">printmanagement.msc</code>
+                                <p class="text-xs text-orange-900 mt-1">Gerenciamento centralizado de impressoras, portas e drivers (Versões Pro/Enterprise).</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             `;
@@ -614,7 +628,7 @@
                     <h3 class="text-xl font-semibold text-gray-700 mb-3">Marcas Térmicas (Rolos)</h3>
                     <div class="flex flex-wrap gap-2 text-sm">
                         ${Object.keys(printerData.thermalBrands).map(brand => `
-                            <a href="#${printerData.thermalBrands[brand].anchor}" class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition duration-150 ease-in-out">${brand}</a>
+                            <a href="#${printerData.thermalBrands[brand].anchor}" class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition duration-150 ease-in-out border border-orange-200">${brand}</a>
                         `).join('')}
                     </div>
                     
@@ -623,7 +637,7 @@
                         ${Object.keys(printerData.labelBrands).map(brandKey => {
                             const brandName = brandKey.replace('_Etiqueta', '');
                             const brandData = printerData.labelBrands[brandKey];
-                            return `<a href="#${brandData.anchor}" class="px-3 py-1 bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition duration-150 ease-in-out">${brandName}</a>`;
+                            return `<a href="#${brandData.anchor}" class="px-3 py-1 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition duration-150 ease-in-out border border-gray-300">${brandName}</a>`;
                         }).join('')}
                     </div>
                 </div>
@@ -633,18 +647,18 @@
             Object.keys(printerData.thermalBrands).forEach(brandName => {
                 const brand = printerData.thermalBrands[brandName];
                 html += `
-                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-blue-500" id="${brand.anchor}">
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-orange-500" id="${brand.anchor}">
                         <h2 class="text-3xl font-bold text-gray-800 mb-4">${brandName}</h2>
-                        ${renderModelsTable(brand)}
+                        ${renderModelsTable(brand, 'bg-orange-500')}
                         ${renderUtilities(brand.utilities)}
-                        <a href="#top" class="text-sm text-gray-500 hover:text-blue-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
+                        <a href="#top" class="text-sm text-gray-400 hover:text-orange-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
                     </div>
                 `;
             });
 
             // 5. Section Separator for Label Printers
             html += `
-                <h1 class="text-4xl font-extrabold text-gray-800 mb-8 mt-12 border-b-4 border-green-500 pb-3" id="IMPRESSORAS_DE_ETIQUETA">IMPRESSORAS DE ETIQUETA</h1>
+                <h1 class="text-4xl font-extrabold text-gray-800 mb-8 mt-12 border-b-4 border-gray-500 pb-3" id="IMPRESSORAS_DE_ETIQUETA">IMPRESSORAS DE ETIQUETA</h1>
             `;
 
             // 6. Render Label Brands Sections
@@ -652,26 +666,20 @@
                 const brandName = brandKey.replace('_Etiqueta', '');
                 const brand = printerData.labelBrands[brandKey];
                 
-                // Removido o tratamento especial para Tomate e Zebra, pois os dados foram adicionados.
-
                 html += `
-                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-green-500" id="${brand.anchor}">
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-10 border-t-8 border-gray-600" id="${brand.anchor}">
                         <h2 class="text-3xl font-bold text-gray-800 mb-4">${brandName} (Etiqueta)</h2>
-                        ${renderModelsTable(brand)}
+                        ${renderModelsTable(brand, 'bg-gray-600')}
                         ${renderUtilities(brand.utilities)}
-                        <a href="#top" class="text-sm text-gray-500 hover:text-green-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
+                        <a href="#top" class="text-sm text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out mt-4 block">Voltar ao topo ↑</a>
                     </div>
                 `;
             });
 
-
             contentContainer.innerHTML = html;
         }
 
-        // Run the authentication check when the page loads
         document.addEventListener('DOMContentLoaded', checkLogin);
     </script>
 </body>
 </html>
-
-
