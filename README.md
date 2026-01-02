@@ -17,9 +17,9 @@ explorer shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
 ## Para remover drivers que insistem em não ser excluídos pelo Painel de Controle:
 Utilizar as teclas windows + R :
 
-printui /s /t2: Abre diretamente a aba de Drivers das Propriedades do Servidor de Impressão. Aqui você pode remover o driver e o pacote de driver.
+printui /s /t2 : Abre diretamente a aba de Drivers das Propriedades do Servidor de Impressão. Aqui você pode remover o driver e o pacote de driver.
 
-printmanagement.msc: Abre o Gerenciamento de Impressão (disponível em versões Pro/Enterprise), que permite visualizar todas as impressoras, portas e drivers do sistema de forma centralizada.
+printmanagement.msc : Abre o Gerenciamento de Impressão (disponível em versões Pro/Enterprise), que permite visualizar todas as impressoras, portas e drivers do sistema de forma centralizada.
 
 ### Marcas Térmicas
 [Argox](#Argox) | [Bematech](#Bematech) | [Control ID](#Control-ID) | [Daruma](#Daruma) | [Dascom](#Dascom) | [Diebold](#Diebold) | [Dimep](#Dimep) | [Elgin](#Elgin) | [Epson](#Epson) | [Evadin](#Evadin) | [Feasso](#Feasso) | [Gainscha](#Gainscha) | [Gertec](#Gertec) | [Goldensky](#Goldensky) | [Jetway](#Jetway) | [Knup](#Knup) | [Ledtec](#Ledtec) | [Mafra](#Mafra) | [Menno](#Menno) | [Oi Vida](#Oi-Vida) | [Perto](#Perto) | [POS](#POS) | [Star](#Star) | [Sweda](#Sweda) | [Tanca](#Tanca) | [Waytec](#Waytec)
