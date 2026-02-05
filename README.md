@@ -9,6 +9,8 @@
 
 [Impressora Virtual](https://drive.google.com/file/d/10RGn5VdwqcdDnePTfwx-6lgwFdsXRoTz/view?usp=drive_link)
 
+[Correção do Spooler de Impressão](https://www.sordum.org/files/downloads.php?st-fix-print-spooler)
+
 ## Abrir o Control Printers clássico no Windows 11 atualizado.
 Rodar o seguinte comando no Executar:
 
