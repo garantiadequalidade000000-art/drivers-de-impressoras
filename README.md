@@ -277,6 +277,8 @@ printmanagement.msc : Abre o Gerenciamento de Impressão (disponível em versõe
 |-------------------|-----------|---------------------------|
 |Tomate             |0.0.0.0    |[Driver](https://drive.google.com/drive/folders/1phz7KzW_yuFLMlfSuBmldI_Xae74K_TH?usp=sharing)|
 
+[Utility](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/7893906c807b19efdc511fe195d174bb18712584/Utilities/%5BVER%20IMPRESSORA%20TOMATE%20EM%20REDE%5D%20XPrinter%20V3.0C.rar)
+
 ## Zebra_Etiqueta
 | Modelo            | Versão    |Download                   |
 |-------------------|-----------|---------------------------|
