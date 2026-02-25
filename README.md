@@ -11,6 +11,12 @@
 
 [Correção do Spooler de Impressão](https://www.sordum.org/files/downloads.php?st-fix-print-spooler)
 
+## Para usar o emulador de balança instalar o simulador de porta COM antes.
+
+[Emulador de Balança](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/c6af22f904a2ef33bbccb21e4f841d838d6473e8/Utilities/%5BEMULADOR-BALANCA%5DAcbr_EmuladorBalancaDelphi.rar)
+
+[Simulador de Porta COM](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/c6af22f904a2ef33bbccb21e4f841d838d6473e8/Utilities/%5BSIMULADOR-DE-PORTA-COM%5Dcom0com-3.0.0.0-i386-and-x64-signed.zip)
+
 ## Abrir o Control Printers clássico no Windows 11 atualizado.
 Rodar o seguinte comando no Executar:
 
