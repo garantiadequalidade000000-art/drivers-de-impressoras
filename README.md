@@ -11,7 +11,7 @@
 
 [Correção do Spooler de Impressão](https://www.sordum.org/files/downloads.php?st-fix-print-spooler)
 
-[Ver dependências DLL](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/00f7ef45228f6e3633254097330a3b31f9afe943/Utilities/%5BVER-DEPENDENCIAS-DLL%5DDependencies_x64_Release.zip).
+[Ver dependências DLL](https://raw.githubusercontent.com/garantiadequalidade000000-art/drivers-de-impressoras/00f7ef45228f6e3633254097330a3b31f9afe943/Utilities/%5BVER-DEPENDENCIAS-DLL%5DDependencies_x64_Release.zip)
 
 ## Para usar o emulador de balança instalar o simulador de porta COM antes.
 
